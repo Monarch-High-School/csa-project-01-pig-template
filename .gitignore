@@ -7,3 +7,6 @@ out/
 .vscode/
 .idea/
 .DS_Store
+
+# Test files
+./LibraryLab.java
