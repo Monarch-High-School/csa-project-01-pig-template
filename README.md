@@ -1,25 +1,45 @@
-# Project 1: Game of Pig
+# Game of Pig
 
-Build the dice game **Pig** by extending one Java program through a sequence of
-working iterations.
+A Java console dice game for one or two players.
 
-## The game
+## Run
 
-During a turn, a player builds a temporary **turn score**.
+Requires Java 17 or later.
+
+```text
+javac TwoPlayerPig.java
+java TwoPlayerPig
+```
+
+Enter both player names, then choose `1` to roll or `2` to bank on each turn.
+
+## Rules
 
 - Rolling 2 through 6 adds the roll to the turn score.
-- Rolling 1 ends the turn and loses all points from that turn.
-- Choosing to bank adds the turn score to the player's overall score and ends
-  the turn.
-- The first player whose overall score reaches 100 or more wins.
+- Rolling 1 ends the turn and discards its points.
+- Banking adds the turn score to the player's banked score and ends the turn.
+- The first player to bank at least 100 points wins.
 
-## Project roadmap
+## Shared build (Wednesday)
 
-1. [Iteration 1: Single-player game](iterations/01-single-player.md) — Build the
-   core turn, rolling, banking, and scoring logic.
-2. [Iteration 2: Two-player game](iterations/02-two-player.md) — Extend the same
-   program with separate players, alternating turns, and a winner.
-3. [Iteration 3: Two-dice remix](iterations/03-two-dice-remix.md) — An optional
-   stretch goal: design and implement new rules for combinations of two dice.
+On the `oop` branch the class bodies are stubbed and four groups implement them
+on `group/*` branches. Directions: [SHARED-BUILD.md](SHARED-BUILD.md).
 
-Continue editing the same `Pig.java` file throughout the project. Your project should clearly identify which commit corresponds to the completion of which project iteration milestone.
+## Files
+
+- [TwoPlayerPig.java](TwoPlayerPig.java): runnable two-player game; collects names and creates the players and game.
+- [Player.java](Player.java): player names, banked scores, and roll/bank input.
+- [Game.java](Game.java): turns, dice rolls, scoring, and results.
+- [Die.java](Die.java): six-sided die.
+- [CLASSES.md](CLASSES.md): API reference.
+- [Pig.java](Pig.java): project entry point for the iteration implementations.
+- [LibraryLab.java](LibraryLab.java): API scratch program; [section reference](LIBRARY-LAB.md).
+
+## Versions
+
+1. [Single-player](iterations/01-single-player.md)
+2. [Objects rebuild](iterations/objects-rebuild.md)
+3. [Two-player](iterations/02-two-player.md)
+4. [Two-dice remix](iterations/03-two-dice-remix.md) (optional)
+
+Iteration implementations use `Pig.java`. Commit history identifies completed versions.
