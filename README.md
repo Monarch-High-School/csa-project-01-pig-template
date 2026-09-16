@@ -23,7 +23,7 @@ Enter both player names, then choose `1` to roll or `2` to bank on each turn.
 ## Shared build (Wednesday)
 
 On the `oop` branch the class bodies are stubbed and four groups implement them
-on `group/*` branches. Directions: [SHARED-BUILD.md](SHARED-BUILD.md).
+on `group/*` branches. Each group uses its page in [groups/](groups/).
 
 ## Files
 
@@ -33,7 +33,6 @@ on `group/*` branches. Directions: [SHARED-BUILD.md](SHARED-BUILD.md).
 - [Die.java](Die.java): six-sided die.
 - [CLASSES.md](CLASSES.md): API reference.
 - [Pig.java](Pig.java): project entry point for the iteration implementations.
-- [LibraryLab.java](LibraryLab.java): API scratch program; [section reference](LIBRARY-LAB.md).
 
 ## Versions
 
