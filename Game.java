@@ -186,21 +186,25 @@ public class Game {
      * @return the winner, or null if no player has reached the winning score yet
      */
     public Player getWinner() {
-        // TODO (Group 4 · Results & display): return player1 if player1 has
-        // reached the winning score; return player2 if there is a player2 and
-        // player2 has reached it; otherwise return null.
-        return null; // placeholder so the file compiles
+        if (player1.getScore() >= winningScore) {
+            return player1;
+        }
+        if (player2 != null && player2.getScore() >= winningScore) {
+            return player2;
+        }
+        return null;
     }
 
     /** Displays the welcome message. */
     public void welcome() {
-        // TODO (Group 4 · Results & display): print a welcome line.
+        System.out.println("Welcome to PIG!");
     }
 
     /** Displays the rules and the winning score. */
     public void rules() {
-        // TODO (Group 4 · Results & display): print the rules. Use the
-        // winningScore field rather than typing 100.
+        System.out.println("Roll to build a turn score. Bank to keep it.");
+        System.out.println("Rolling 1 loses this turn's points and ends the turn.");
+        System.out.println("First to bank " + winningScore + " points wins.");
     }
 
     /**
@@ -208,15 +212,25 @@ public class Game {
      * is unfinished, then shows the banked scores.
      */
     public void displayResult() {
-        // TODO (Group 4 · Results & display): if there is a winner, print
-        // "<name> wins in <turnNumber> turns!"; otherwise print that the game
-        // is unfinished. Then call displayScores().
+        System.out.println();
+        Player winner = getWinner();
+        if (winner != null) {
+            System.out.println(winner.getName() + " wins in " + turnNumber + " turns!");
+        } else if (inputEnded) {
+            System.out.println("Input ended. Game unfinished.");
+        } else {
+            System.out.println("Game unfinished.");
+        }
+        displayScores();
     }
 
     /** Displays each player's name and banked score on one line. */
     private void displayScores() {
-        // TODO (Group 4 · Results & display): print player1's name and score;
-        // if there is a player2, print theirs on the same line.
+        System.out.print(player1.getName() + ": " + player1.getScore());
+        if (player2 != null) {
+            System.out.print("   " + player2.getName() + ": " + player2.getScore());
+        }
+        System.out.println();
     }
 
     // ------------------------------------------------------------------
