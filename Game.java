@@ -115,8 +115,7 @@ public class Game {
      * @return the current player
      */
     public Player getCurrentPlayer() {
-        // TODO (Group 3 · Turns & game end): return the current player.
-        return null; // placeholder so the file compiles
+        return currentPlayer;
     }
 
     /**
@@ -125,8 +124,7 @@ public class Game {
      * @return the current turn number
      */
     public int getTurnNumber() {
-        // TODO (Group 3 · Turns & game end): return the turn number.
-        return 0; // placeholder so the file compiles
+        return turnNumber;
     }
 
     /**
@@ -135,8 +133,7 @@ public class Game {
      * @return the winning score, which is 100
      */
     public int getWinningScore() {
-        // TODO (Group 3 · Turns & game end): return the winning score.
-        return 0; // placeholder so the file compiles
+        return winningScore;
     }
 
     /**
@@ -145,10 +142,16 @@ public class Game {
      * @return true if a player won or console input ended
      */
     public boolean isOver() {
-        // TODO (Group 3 · Turns & game end): true if input ended, or if
-        // player1 has reached the winning score, or if there is a player2 and
-        // player2 has reached it. Otherwise false. Careful: player2 may be null.
-        return false; // placeholder so the file compiles
+        if (inputEnded) {
+            return true;
+        }
+        if (player1.getScore() >= winningScore) {
+            return true;
+        }
+        if (player2 != null && player2.getScore() >= winningScore) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -159,10 +162,18 @@ public class Game {
      * the game was won.
      */
     public void nextTurn() {
-        // TODO (Group 3 · Turns & game end): do nothing if the game is over.
-        // Otherwise: in a two-player game switch currentPlayer to the other
-        // player; then add 1 to the turn number, set the turn score to 0, and
-        // mark the turn as not over.
+        if (!isOver()) {
+            if (player2 != null) {
+                if (currentPlayer == player1) {
+                    currentPlayer = player2;
+                } else {
+                    currentPlayer = player1;
+                }
+            }
+            turnNumber = turnNumber + 1;
+            turnScore = 0;
+            turnOver = false;
+        }
     }
 
     // ------------------------------------------------------------------
