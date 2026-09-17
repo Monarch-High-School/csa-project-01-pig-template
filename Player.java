@@ -26,7 +26,7 @@ public class Player {
      */
     public String getName() {
         // TODO (Group 1 · Die & Player): return the name.
-        return ""; // placeholder so the file compiles
+        return this.name; // placeholder so the file compiles
     }
 
     /**
@@ -36,7 +36,7 @@ public class Player {
      */
     public int getScore() {
         // TODO (Group 1 · Die & Player): return the banked score.
-        return 0; // placeholder so the file compiles
+        return score; // placeholder so the file compiles
     }
 
     /**
@@ -74,5 +74,8 @@ public class Player {
      */
     public void addToScore(int points) {
         // TODO (Group 1 · Die & Player): increase score by points.
+        score += points;
+        
+        
     }
 }
