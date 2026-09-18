@@ -20,7 +20,8 @@ public class Die {
     public int roll() {
         // TODO (Group 1 · Die & Player): store a random number from 1 through 6
         // in value, then return it.
-        return 0; // placeholder so the file compiles
+        value = (int)Math.random()*6 + 1;
+        return value; // placeholder so the file compiles
     }
 
     /**
@@ -30,6 +31,6 @@ public class Die {
      */
     public int getValue() {
         // TODO (Group 1 · Die & Player): return the number showing now.
-        return 0; // placeholder so the file compiles
+        return value; // placeholder so the file compiles
     }
 }
