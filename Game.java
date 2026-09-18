@@ -60,8 +60,7 @@ public class Game {
      * @return the turn score
      */
     public int getTurnScore() {
-        // TODO (Group 2 · Turn scoring): return the turn score.
-        return 0; // placeholder so the file compiles
+        return turnScore; // placeholder so the file compiles
     }
 
     /**
@@ -71,8 +70,7 @@ public class Game {
      * @return true if this turn is over, false while it is still being played
      */
     public boolean isTurnOver() {
-        // TODO (Group 2 · Turn scoring): return whether the turn is over.
-        return false; // placeholder so the file compiles
+        return turnOver; // placeholder so the file compiles
     }
 
     /**
@@ -81,8 +79,10 @@ public class Game {
      * @param points the points to add to the turn score
      */
     public void addToTurnScore(int points) {
-        // TODO (Group 2 · Turn scoring): if the turn is not over, add points
         // to the turn score.
+        if (!turnOver){
+            turnScore += points;
+        }
     }
 
     /**
@@ -91,7 +91,10 @@ public class Game {
      * Postcondition: getTurnScore() returns 0 and isTurnOver() returns true.
      */
     public void loseTurnScore() {
-        // TODO (Group 2 · Turn scoring): clear the turn score and end the turn.
+        if (!turnOver){
+            turnScore = 0;
+            turnOver = true;
+        }
     }
 
     /**
@@ -103,6 +106,11 @@ public class Game {
     public void bank() {
         // TODO (Group 2 · Turn scoring): if the turn is not over, give the
         // turn score to the current player, clear it, and end the turn.
+        if (!turnOver){
+            currentPlayer.addToScore(turnScore);
+            turnScore = 0;
+            turnOver = true;
+        }
     }
 
     // ------------------------------------------------------------------
